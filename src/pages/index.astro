@@ -5,13 +5,10 @@ import ListSvelte from '../components/List.svelte';
 ---
 
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>hola Mundo</h1>
+<Layout title="Acortador de links">
+	<main class="w-2/3	m-auto max-w-2xl">
+		<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Acortador de links</h1>
 		<FormSvelte client:visible />
-		<ListSvelte client:visible />
+		<ListSvelte client:visible/>
 	</main>
 </Layout>
-
-<style>
-</style>

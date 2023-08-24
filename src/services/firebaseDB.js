@@ -41,12 +41,13 @@ const updateUrl = async (documentId, newData) => {
   await collectionRef.doc(documentId).update(newData);
 };
 
-const deleteUrl = async (documentId) => {
-  await collectionRef.doc(documentId).delete();
+const deleteUrl = (documentId) => {
+  collectionRef.doc(documentId).delete();
 };
 
 const getCount = async () => {
   const sizaCollection = (await collectionRef.get()).size;
+  return sizaCollection;
 };
 
 const deleteAll = async () => {
@@ -59,10 +60,13 @@ const deleteAll = async () => {
   });
 };
 
-const buscarUrlByFilter = async (item, filter) => {
-  const snapshot = await collectionRef.where(item, '==', filter).get();
+const buscarUrlsByFilter = async (atributoBD, value) => {
+  const snapshot = await collectionRef.where(atributoBD, '==', value).get();
   const documents = snapshot.docs.map((doc) => doc.data());
+  for (let i = 0; i < documents.length; i++) {
+    documents[i].id = snapshot.docs[i].id;
+  }
   return documents;
 };
 
-export { createUrl, getUrls, deleteUrl, getCount, deleteAll, buscarUrlByFilter };
+export { createUrl, getUrls, deleteUrl, getCount, deleteAll, buscarUrlsByFilter };
