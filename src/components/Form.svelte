@@ -5,7 +5,7 @@
 
   let error = false;
   let data = {
-    user: 'aa',
+    user: '',
     short_url: '',
     large_url: '',
   };
@@ -23,9 +23,9 @@
     });
   };
 
-  searchLinks();
-
   const acortarUrl = () => {
+    const shortUrl = Math.random().toString(32).substr(2, 5);
+    data.short_url = shortUrl;
     createUrl(data);
     searchLinks();
     data = {
@@ -49,21 +49,21 @@
       />
     </div>
     <div class="relative z-0 w-full mb-6 group">
-      <label for="shortUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">URL corta</label>
-      <input
-        bind:value={data.short_url}
-        type="url"
-        id="shortUrl"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="https://www.google.com/"
-      />
-    </div>
-    <div class="relative z-0 w-full mb-6 group">
       <label for="largeUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Url larga</label>
       <input
         bind:value={data.large_url}
         type="url"
         id="largeUrl"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="https://www.google.com/"
+      />
+    </div>
+    <div class="relative z-0 w-full mb-6 group">
+      <label for="shortUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">URL corta</label>
+      <input
+        bind:value={data.short_url}
+        type="url"
+        id="shortUrl"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         placeholder="https://www.google.com/"
       />
@@ -97,6 +97,6 @@
       {@html AlertIcon}
       <span class="sr-only">Warning icon</span>
     </div>
-    <div class="ml-3 text-sm font-normal">Debe ingresar un usuario.</div>
+    <div class="ml-3 text-sm font-normal">Formulario invalido.</div>
   </div>
 {/if}

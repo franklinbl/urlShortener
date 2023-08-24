@@ -27,7 +27,7 @@
   };
 
   const tryUrl = (url) => {
-    window.open(url, '_blank');
+    window.open(window.location + url, '_blank');
   };
 </script>
 
@@ -45,8 +45,8 @@
         {#each urls as url}
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <td class="px-6 py-4">{url.large_url}</td>
-            <td class="px-6 py-4">{url.short_url}</td>
-            <td class="px-6 py-4 flex justify-around">
+            <td class="px-6 py-4">{window.location + url.short_url}</td>
+            <td class="px-6 py-4 flex">
               <button
                 on:click={() => copyUrlInClipboard(url.short_url)}
                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline copyButton">{@html ClipboardIcon}</button
