@@ -6,9 +6,9 @@ import ListSvelte from '../components/List.svelte';
 
 
 <Layout title="Acortador de links">
-	<main class="w-2/3	m-auto max-w-2xl">
+	<main class="w-3/4	m-auto max-w-screen-xl">
 		<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Acortador de links</h1>
-		<FormSvelte client:visible />
+		<FormSvelte client:only />
 		<ListSvelte client:visible/>
 	</main>
 </Layout>

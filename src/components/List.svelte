@@ -16,14 +16,7 @@
   };
 
   const copyUrlInClipboard = (urlCopied) => {
-    navigator.clipboard
-      .writeText(urlCopied)
-      .then(() => {
-        console.log('Texto copiado al portapapeles ' + urlCopied);
-      })
-      .catch((err) => {
-        console.error('Error al copiar al portapapeles:', err);
-      });
+    navigator.clipboard.writeText(window.location + urlCopied);
   };
 
   const tryUrl = (url) => {
